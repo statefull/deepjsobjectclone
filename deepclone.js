@@ -1,5 +1,5 @@
 Object.prototype.clone = function () {
-  let cloned = null;
+  let cloned = this;
 
   if (Array.isArray(this)) {
 
@@ -14,8 +14,6 @@ Object.prototype.clone = function () {
     Object.keys(this).forEach((key) => {
       cloned[key] = typeof this[key] === 'object' ? this[key].clone() : this[key];
     });
-  } else {
-    return this;
   }
 
   return cloned;
